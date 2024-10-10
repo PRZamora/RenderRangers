@@ -1,7 +1,8 @@
+---
 layout: page
 title: "ReadMe"
 permalink: /ReadMe
-
+---
 # RenderRangers
 Repositório de relatório das atividades da disciplina de Processamento de Vídeo (UFABC, 2024.3)
 
