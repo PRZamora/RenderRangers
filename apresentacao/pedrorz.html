@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Relatório: Vídeo e Eu</title>
+    <title>Apresentação - Pedro Rosental Zamora</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,25 +11,101 @@
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            color: #333;
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
             text-align: center;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1.5px;
+        }
+
+        nav {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .dropdown {
+            display: inline-block;
+            position: relative;
+            margin: 0 15px;
+        }
+
+        nav .dropdown button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        nav .dropdown .caret {
+            margin-left: 5px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(45deg);
+            vertical-align: middle;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        nav .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         h2 {
             color: #666;
             text-align: center;
         }
+
         p {
             text-align: center;
             line-height: 1.6;
             margin: 10px 0;
         }
+
         img {
             border: 16px solid powderblue;
             border-radius: 8px;
             display: block;
             margin: 0 auto;
         }
+
         a {
             display: block;
             margin: 20px auto;
@@ -42,6 +117,7 @@
             text-decoration: none;
             width: 150px;
         }
+
         a:hover {
             background-color: #0056b3;
         }
@@ -49,14 +125,50 @@
 </head>
 <body>
 
-    <h1><b><i>RELATÓRIO: Vídeo e Eu</i></b></h1>
-    <h1><i>Laboratório 00 - Introdução ao HTML5</i></h1>
+<header>
+    <h1>Render Rangers</h1>
+</header>
 
-    <h2>Olá! Meu nome é <b>Pedro Rosental Zamora!</b></h2>
-    <p>Esse abaixo sou eu, construindo uma impressora 3D!</p>
-    <img src="https://i1.rgstatic.net/ii/profile.image/651571616575493-1532358187049_Q128/Pedro-Zamora.jpg" alt="Me!" width="200" height="200">
+<nav>
+    <!-- Relatórios Dropdown -->
+    <div class="dropdown">
+        <button>Relatórios <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="../relatorios/relatorio1.html">Relatório 1</a>
+            <a href="../relatorios/relatorio2.html">Relatório 2</a>
+            <a href="../relatorios/relatorio3.html">Relatório 3</a>
+        </div>
+    </div>
+    
+    <!-- Projetos Dropdown -->
+    <div class="dropdown">
+        <button>Projetos <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="../projetos/projeto1.html">Projeto 1</a>
+            <a href="../projetos/projeto2.html">Projeto 2</a>
+            <a href="../projetos/projeto3.html">Projeto 3</a>
+        </div>
+    </div>
+    
+    <!-- Membros Dropdown -->
+    <div class="dropdown">
+        <button>Membros <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="joaopsl.html">João Pedro Silva Lima</a>
+            <a href="renatopod.html">Renato do Prado Oliveira Dias</a>
+            <a href="pedrorz.html">Pedro Rosental Zamora</a>
+        </div>
+    </div>
+</nav>
 
-    <a href="https://www.w3schools.com" target="_blank">Visite W3Schools</a>
+<h1><b><i>RELATÓRIO: Vídeo e Eu</i></b></h1>
+<h1><i>Laboratório 00 - Introdução ao HTML5</i></h1>
+
+<h2>Olá! Meu nome é <b>Pedro Rosental Zamora!</b></h2>
+<p>Esse abaixo sou eu, construindo uma impressora 3D!</p>
+<img src="https://i1.rgstatic.net/ii/profile.image/651571616575493-1532358187049_Q128/Pedro-Zamora.jpg" alt="Me!" width="200" height="200">
+
+<a href="https://www.w3schools.com" target="_blank">Visite W3Schools</a>
 
 </body>
 </html>
