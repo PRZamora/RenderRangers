@@ -96,29 +96,41 @@
         footer p {
             margin: 10px 0;
         }
+        .caret {
+            display: inline-block;
+            margin-left: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+        }
+        button:hover .caret {
+            border-top-color: #ddd; /* Change caret color on hover */
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Relatório X - Render Rangers</h1>
+    <h1>Relatório 1 - Render Rangers</h1>
 </header>
 
 <nav>
     <div class="dropdown">
-        <button>Relatórios</button>
+        <button>Relatórios <span class="caret"></span></button>
         <div class="dropdown-content">
-            <a href="/relatorios/relatorio1.html">Relatório 1</a>
-            <a href="/relatorios/relatorio2.html">Relatório 2</a>
-            <a href="/relatorios/relatorio3.html">Relatório 3</a>
+            <a href="relatorios/relatorio1.html">Relatório 1</a>
+            <a href="relatorios/relatorio2.html">Relatório 2</a>
+            <a href="relatorios/relatorio3.html">Relatório 3</a>
         </div>
     </div>
     <div class="dropdown">
-        <button>Projetos</button>
+        <button>Projetos <span class="caret"></span></button>
         <div class="dropdown-content">
-            <a href="/projetos/projeto1.html">Projeto 1</a>
-            <a href="/projetos/projeto2.html">Projeto 2</a>
-            <a href="/projetos/projeto3.html">Projeto 3</a>
+            <a href="projetos/projeto1.html">Projeto 1</a>
+            <a href="projetos/projeto2.html">Projeto 2</a>
+            <a href="projetos/projeto3.html">Projeto 3</a>
         </div>
     </div>
 </nav>
