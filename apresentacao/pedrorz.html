@@ -7,11 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
         }
-
         header {
             background-color: #4CAF50;
             color: white;
@@ -21,13 +21,11 @@
             border-top-right-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         h1 {
             margin: 0;
             font-size: 2.5em;
             letter-spacing: 1.5px;
         }
-
         nav {
             background-color: #4CAF50;
             padding: 10px;
@@ -36,13 +34,11 @@
             border-bottom-right-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         nav .dropdown {
             display: inline-block;
             position: relative;
             margin: 0 15px;
         }
-
         nav .dropdown button {
             background-color: #4CAF50;
             color: white;
@@ -50,19 +46,12 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-
-        nav .dropdown .caret {
-            margin-left: 5px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 5px;
-            transform: rotate(45deg);
-            vertical-align: middle;
+        nav .dropdown button:hover {
+            background-color: #45a049;
         }
-
         nav .dropdown-content {
             display: none;
             position: absolute;
@@ -71,66 +60,64 @@
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 5px;
+            top: 100%;
         }
-
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
         nav .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
         }
-
         nav .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-
-        nav .dropdown:hover .dropdown-content {
-            display: block;
+        .content {
+            margin-top: 30px;
         }
-
         h2 {
-            color: #666;
-            text-align: center;
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-
-        p {
+        .section {
+            margin-bottom: 40px;
+        }
+        footer {
+            margin-top: 40px;
             text-align: center;
-            line-height: 1.6;
+            color: #777;
+        }
+        footer p {
             margin: 10px 0;
         }
-
-        img {
-            border: 16px solid powderblue;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
+        .caret {
+            display: inline-block;
+            margin-left: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
         }
-
-        a {
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            width: 150px;
-        }
-
-        a:hover {
-            background-color: #0056b3;
+        button:hover .caret {
+            border-top-color: #ddd; /* Change caret color on hover */
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Render Rangers</h1>
+    <h1>Apresentação - Pedro Rosental Zamora</h1>
 </header>
 
 <nav>
-    <!-- Relatórios Dropdown -->
+    <!-- Relatórios Dropdown -->    
     <div class="dropdown">
         <button>Relatórios <span class="caret"></span></button>
         <div class="dropdown-content">
@@ -139,7 +126,6 @@
             <a href="../relatorios/relatorio3.html">Relatório 3</a>
         </div>
     </div>
-    
     <!-- Projetos Dropdown -->
     <div class="dropdown">
         <button>Projetos <span class="caret"></span></button>
@@ -149,7 +135,6 @@
             <a href="../projetos/projeto3.html">Projeto 3</a>
         </div>
     </div>
-    
     <!-- Membros Dropdown -->
     <div class="dropdown">
         <button>Membros <span class="caret"></span></button>
@@ -161,14 +146,21 @@
     </div>
 </nav>
 
-<h1><b><i>RELATÓRIO: Vídeo e Eu</i></b></h1>
-<h1><i>Laboratório 00 - Introdução ao HTML5</i></h1>
+<div class="content">
+    <div class="section">
+        <h2>Apresentação</h2>
+        <p>Olá! Meu nome é <b>Pedro Rosental Zamora!</b> Esse abaixo sou eu, construindo uma impressora 3D!</p>
+        <img src="https://i1.rgstatic.net/ii/profile.image/651571616575493-1532358187049_Q128/Pedro-Zamora.jpg" alt="Pedro Rosental Zamora" width="200" height="200" style="display:block; margin:0 auto; border-radius: 8px;">
+    </div>
 
-<h2>Olá! Meu nome é <b>Pedro Rosental Zamora!</b></h2>
-<p>Esse abaixo sou eu, construindo uma impressora 3D!</p>
-<img src="https://i1.rgstatic.net/ii/profile.image/651571616575493-1532358187049_Q128/Pedro-Zamora.jpg" alt="Me!" width="200" height="200">
+    <div class="section">
+        <a href="https://www.w3schools.com" target="_blank">Visite W3Schools</a>
+    </div>
+</div>
 
-<a href="https://www.w3schools.com" target="_blank">Visite W3Schools</a>
+<footer>
+    <p>&copy; 2024 Render Rangers | UFABC</p>
+</footer>
 
 </body>
 </html>
