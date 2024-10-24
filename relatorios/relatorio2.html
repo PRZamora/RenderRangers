@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório 2 - Render Rangers</title>
-     <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -205,10 +205,202 @@
 
     <div class="section">
         <h2>4. Resultados e Análises</h2>
-        <p>[Escreva a análise e observações dos resultados obtidos]</p>
-        <p>Mostre os efeitos causados nas imagens e nos sinais, além de observações próprias sobre os experimentos.</p>
-    </div>
+        
+        <div class="image-container">
+            <h3>Imagens Originais (Pré-filtragem)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/lab1_grupo_rgb.jpeg" alt="Foto Original" style="max-width: 200px; margin: 10px;">
+                    <p>Grupo - Foto Original</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/lab1_grupo_rgb_salt_pepper_noise.png" alt="Foto Original com ruído S&T" style="max-width: 200px; margin: 10px;">
+                    <p>Grupo - Foto com S&T</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Filtros sob imagem original -->
 
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Original + Bilateral)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Bilateral.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Bilateral.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Bilateral.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Bilateral.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 11x11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Original + Blur)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Blur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Blur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Blur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Blur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 11x11</p>
+                </div>
+            </div>
+        </div>        
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Original + Gaussiano)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_GaussianBlur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_GaussianBlur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_GaussianBlur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_GaussianBlur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 11x11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Original + MedianBlur)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_MedianBlur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_MedianBlur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_MedianBlur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_MedianBlur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 11x11</p>
+                </div>
+            </div>
+        </div>  
+    
+        <!-- Filtros sob imagem com ruído -->
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Ruído + Bilateral)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Noise_Bilateral.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Noise_Bilateral.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Noise_Bilateral.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Noise_Bilateral.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>Bilateral 11x11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Ruído + Blur)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Noise_Blur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Noise_Blur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Noise_Blur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Noise_Blur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>Blur 11x11</p>
+                </div>
+            </div>
+        </div>        
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Ruído + Gaussiano)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Noise_GaussianBlur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Noise_GaussianBlur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Noise_GaussianBlur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Noise_GaussianBlur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>GaussianBlur 11x11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <h3>Imagens com Filtros Aplicados (Ruído + MedianBlur)</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/3x3_Noise_MedianBlur.jpg" alt="Imagem Filtrada 1" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 3x3</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/5x5_Noise_MedianBlur.jpg" alt="Imagem Filtrada 2" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 5x5</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/7x7_Noise_MedianBlur.jpg" alt="Imagem Filtrada 3" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 7x7</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="../arquivo/imagens/relatorio_2/11x11_Noise_MedianBlur.jpg" alt="Imagem Filtrada 4" style="max-width: 200px; margin: 10px;">
+                    <p>MedianBlur 11x11</p>
+                </div>
+            </div>
+        </div>  
+    </div>
+    
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
         <p>[Escreva as conclusões e comentários finais]</p>
