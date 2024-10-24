@@ -543,7 +543,9 @@
 
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
-        <p>[Escreva as conclusões e comentários finais]</p>
+        <p>Neste laboratório, pudemos explorar a aplicação através do OpenCV de diferentes filtros de suavização em imagens, a saber: filtro de média, gaussiano, mediana e bilateral. Pudemos também observar os resultados do filtro quando aplicados em uma imagem com ruído, e analisar os efeitos que o filtro causa sobre o ruído aplicado na imagem original.</p>
+        <p>Na aplicação dos filtros, observamos uma relação direta entre o tamanho do kernel, e a intensidade do efeito de filtro. Para as imagens sem o ruído aplicado, observamos que os filtros com kernel 3x3 não resultam em diferenças notórias na imagem; os efeitos passam a ser perceptíveis somente a partir do kernel 5x5. O filtro de mediana apresentou resultado mais intenso, e o filtro bilateral apresentou resultado mais sutil. Por outro lado, nas imagens com o ruído aplicado, os filtros de média, mediana e gaussiano de kernel 3x3 já foram suficientes para obtermos resultados notáveis, suavizando os efeitos do ruído e sem perder muito da informação original da imagem. A partir do tamanho de kernel 5x5, os resultados foram bastante semelhantes aos obtidos com a imagem sem ruído. Já para o filtro bilateral, seu efeito foi muito pouco perceptível para qualquer tamanho de kernel, tanto na imagem original quanto na imagem com ruído.</p>
+        <p>Os resultados obtidos reforçam a importância de uma escolha adequada de filtro e tamanho de kernel para as diferentes necessidades de processamento de vídeo e imagens, ao nos mostrar como um mesmo filtro pode ter resultados diferentes dependendo das condições iniciais da imagem (com ou sem ruído).</p>
     </div>
 </div>
 
