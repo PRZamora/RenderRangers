@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório 5 - Render Rangers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1.5px;
+        }
+        h2 {
+            font-size: 1.5em; /* Smaller than h1 */
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25em; /* Smaller than h1 */
+            color: #4CAF50; /* You can adjust this color if needed */
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1em; /* Smaller than h1 */
+            color: #4CAF50; /* You can adjust this color if needed */
+            margin-top: 15px;
+        }
+        nav {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav .dropdown {
+            display: inline-block;
+            position: relative;
+            margin: 0 15px;
+        }
+        nav .dropdown button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav .dropdown button:hover {
+            background-color: #45a049;
+        }
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+        }
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        nav .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+        nav .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .content {
+            margin-top: 30px;
+        }
+        .bold {
+            font-weight: bold;
+            color: #4CAF50; /* Change color of bold text */
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #777;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        .caret {
+            display: inline-block;
+            margin-left: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+        }
+        button:hover .caret {
+            border-top-color: #ddd; /* Change caret color on hover */
+        }
+        a {
+            color: #4CAF50; /* Default link color */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        li {
+            padding: 10px 0; /* Adjust the value as needed */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Relatório 5 - Render Rangers</h1>
+</header>
+
+<nav>
+    <!-- Relatórios Dropdown -->    
+    <div class="dropdown">
+        <button>Relatórios <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="relatorio1.html">Relatório 1</a>
+            <a href="relatorio2.html">Relatório 2</a>
+            <a href="relatorio3.html">Relatório 3</a>
+        </div>
+    </div>
+    <!-- Projetos Dropdown -->
+    <div class="dropdown">
+        <button>Projetos <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="../projetos/projeto1.html">Projeto 1</a>
+            <a href="../projetos/projeto2.html">Projeto 2</a>
+            <a href="../projetos/projeto3.html">Projeto 3</a>
+        </div>
+    </div>
+    <!-- Membros Dropdown -->
+    <div class="dropdown">
+        <button>Membros <span class="caret"></span></button>
+        <div class="dropdown-content">
+            <a href="../apresentacao/joaopsl.html">João Pedro</a>
+            <a href="../apresentacao/renatopod.html">Renato</a>
+            <a href="../apresentacao/pedrorz.html">Pedro</a>
+        </div>
+    </div>
+</nav>
+
+<div class="content">
+        <!-- Adicionando a data de entrega -->
+    <div style="text-align: right; font-size: 1.2em; margin-top: -30px; margin-bottom: 20px; color: #4CAF50; padding: 10px; font-weight: bold;">
+        Data de Entrega: 5 de Novembro de 2024
+    </div>
+    <div class="section">
+        <h2>1. Introdução</h2>
+        <p>Os obejtivos do trabalho eram:</p>
+        <ul>
+            <li>Estudar e compreender as conversões de cores mais utilizadas no processamento de imagens.</li>
+            <li>Como aplicar isso em códigos de processamento de imagens.</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>2. Fundamentos Básicos</h2>
+        <p>[Escreva os fundamentos básicos utilizados]</p>
+    </div>
+
+    <div class="section">
+        <h2>3. Materiais e Métodos</h2>
+        <p>- Diagrama de blocos funcional</p>
+        <p>- Ambiente detalhado dos experimentos (nome e versão dos sistemas, equipamentos, programas, bibliotecas, software utilizados)</p>
+        <p>- Procedimentos experimentais</p>
+    </div>
+
+    <div class="section">
+        <h2>4. Resultados e Análises</h2>
+        <p>[Escreva a análise e observações dos resultados obtidos]</p>
+        <p>Mostre os efeitos causados nas imagens e nos sinais, além de observações próprias sobre os experimentos.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Conclusões e Comentários Finais</h2>
+        <p>[Escreva as conclusões e comentários finais]</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Render Rangers | UFABC</p>
+</footer>
+
+</body>
+</html>
