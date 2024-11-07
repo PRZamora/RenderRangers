@@ -228,39 +228,40 @@
 
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
-        <p>[Escreva as conclusões e comentários finais]</p>
+        <p>À quesito de facilitar as leituras, exporemos primeiro os resultados. Os códigos utilizados para atingí-los se encontram ao fim dessa sessão.</p>
         
-        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
-            <p><strong>Nome do Script:</strong> ThresholdHSV.cpp</p>
-            <!-- Carregado nas tags de script abaixo -->
-            <pre><code id="code-snipet-1"></code></pre>
-        </div>
+        
 
+        <p>Dados os resultados descritos acima, segue códigos utilizados:</p>
+
+        <p>Para os itens 2 e 2a (dada que a diferença do código se resume à aplicação do filtro Gaussiano, exporemos apenas o código do segundo caso):</p>    
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdGaussianHSV.cpp</p>
             <!-- Carregado nas tags de script abaixo -->
             <pre><code id="code-snipet-2"></code></pre>
         </div>
 
+        <p>Para o item 2b:</p>
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdCanny.cpp</p>
             <!-- Carregado nas tags de script abaixo -->
             <pre><code id="code-snipet-3"></code></pre>
         </div>
 
+        <p>Para o item 2c:</p>
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdSaveHSV.cpp</p>
             <!-- Carregado nas tags de script abaixo -->
             <pre><code id="code-snipet-4"></code></pre>
         </div>
 
+        <p>E por fim, para o item 3:</p>
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ColorExtract.cpp</p>
             <!-- Carregado nas tags de script abaixo -->
             <pre><code id="code-snipet-5"></code></pre>
         </div>
 
-        <script>fetch("../arquivo/codigos/relatorio_3/rgbtohsv/RgbToHsv.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
         <script>fetch("../arquivo/codigos/relatorio_3/rgbtohsv/RgbToHsv.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-2").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
         <script>fetch("../arquivo/codigos/relatorio_3/cannydetector/CannyDetector.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-3").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
         <script>fetch("../arquivo/codigos/relatorio_3/cannyrecording/CannyRecording.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-4").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
