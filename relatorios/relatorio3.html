@@ -232,40 +232,39 @@
         
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdHSV.cpp</p>
-            <pre><code>                
-            
-            </code></pre>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-1"></code></pre>
         </div>
 
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdGaussianHSV.cpp</p>
-            <pre><code>                
-            
-            </code></pre>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-2"></code></pre>
         </div>
 
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
             <p><strong>Nome do Script:</strong> ThresholdCanny.cpp</p>
-            <pre><code>                
-            
-            </code></pre>
-        </div>
-
-        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
-            <p><strong>Nome do Script:</strong> ThresholdSaveHSV.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
             <pre><code id="code-snipet-3"></code></pre>
         </div>
 
         <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
-            <p><strong>Nome do Script:</strong> ColorExtract.cpp</p>
-            <pre><code>                
-            
-            </code></pre>
+            <p><strong>Nome do Script:</strong> ThresholdSaveHSV.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-4"></code></pre>
         </div>
 
-        <script>
-            fetch("../arquivo/codigos/relatorio_3/rgbtohsv/RgbToHsv.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-3").textContent = data;}).catch(error => console.error("Error loading code!", error));
-        </script>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> ColorExtract.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-5"></code></pre>
+        </div>
+
+        <script>fetch("../arquivo/codigos/relatorio_3/rgbtohsv/RgbToHsv.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_3/rgbtohsv/RgbToHsv.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-2").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_3/cannydetector/CannyDetector.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-3").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_3/cannyrecording/CannyRecording.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-4").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_3/rgbtohsv/ToPlace.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-5").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
 
     </div>
 </div>
