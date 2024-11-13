@@ -10,21 +10,20 @@ const int max_value = 255;
 const String window_capture_name = "Video Capture";
 const String window_detection_name = "Object Detection";
 
-const cv::Scalar green_max_value = Scalar(106, 153, 149);
-const cv::Scalar green_min_value = Scalar(63, 43, 82);
+const cv::Scalar green_max_value = Scalar(51, 189, 229);
+const cv::Scalar green_min_value = Scalar(38, 99, 159);
 
-const cv::Scalar red_max_value = Scalar(24, 206, 255);
-const cv::Scalar red_min_value = Scalar(0, 89, 157);
+const cv::Scalar red_max_value = Scalar(25, 249, 202);
+const cv::Scalar red_min_value = Scalar(0, 180, 83);
 
-const cv::Scalar blue_max_value = Scalar(112, 198, 255);
-const cv::Scalar blue_min_value = Scalar(100, 115, 190);
+const cv::Scalar blue_max_value = Scalar(119, 217, 255);
+const cv::Scalar blue_min_value = Scalar(101, 84, 164);
  
 int main(int argc, char* argv[])
 {
     VideoCapture cap(argc > 1 ? atoi(argv[1]) : 0);
  
     namedWindow(window_capture_name);
-    namedWindow(window_detection_name);
  
     Mat frame, frame_HSV, blurred_frame_HSV, blue_frame, green_frame, red_frame;
     while (true) {
@@ -61,14 +60,23 @@ int main(int argc, char* argv[])
 			// resize(green_frame, green_frame, frame.size(), INTER_LINEAR);
 			// resize(red_frame, red_frame, frame.size(), INTER_LINEAR);
 			
-			cv::bitwise_and(frame, frame, blue_frame, blue_frame);
-			cv::bitwise_and(frame, frame, green_frame, green_frame);
-			cv::bitwise_and(frame, frame, red_frame, red_frame);
+			Mat red_result = frame.clone();
+			red_result.setTo( Scalar( 0, 0, 0 ), ~red_frame);
+			
+			Mat green_result = frame.clone();
+			green_result.setTo( Scalar( 0, 0, 0 ), ~green_frame);
+			
+			Mat blue_result = frame.clone();
+			blue_result.setTo( Scalar( 0, 0, 0 ), ~blue_frame);
+			
+			// cv::bitwise_and(frame_HSV, frame_HSV, blue_frame, blue_frame);
+			// cv::bitwise_and(frame_HSV, frame_HSV, green_frame, green_frame);
+			// cv::bitwise_and(frame_HSV, frame_HSV, red_frame, red_frame);
 			
 			imwrite("original_image.jpg", frame);
-			imwrite("blue_object.jpg", blue_frame);
-			imwrite("green_object.jpg", green_frame);
-			imwrite("red_object.jpg", red_frame);
+			imwrite("blue_object.jpg", blue_result);
+			imwrite("green_object.jpg", green_result);
+			imwrite("red_object.jpg", red_result);
             break;
         }
     }
