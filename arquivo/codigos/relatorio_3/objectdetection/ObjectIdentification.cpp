@@ -56,9 +56,6 @@ int main(int argc, char* argv[])
         char key = (char) waitKey(30);
         if (key == 'q' || key == 27)
         {
-			// resize(blue_frame, blue_frame, frame.size(), INTER_LINEAR);
-			// resize(green_frame, green_frame, frame.size(), INTER_LINEAR);
-			// resize(red_frame, red_frame, frame.size(), INTER_LINEAR);
 			
 			Mat red_result = frame.clone();
 			red_result.setTo( Scalar( 0, 0, 0 ), ~red_frame);
