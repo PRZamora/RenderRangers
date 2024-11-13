@@ -66,9 +66,6 @@ int main(int argc, char* argv[])
 			Mat blue_result = frame.clone();
 			blue_result.setTo( Scalar( 0, 0, 0 ), ~blue_frame);
 			
-			// cv::bitwise_and(frame_HSV, frame_HSV, blue_frame, blue_frame);
-			// cv::bitwise_and(frame_HSV, frame_HSV, green_frame, green_frame);
-			// cv::bitwise_and(frame_HSV, frame_HSV, red_frame, red_frame);
 			
 			imwrite("original_image.jpg", frame);
 			imwrite("blue_object.jpg", blue_result);
