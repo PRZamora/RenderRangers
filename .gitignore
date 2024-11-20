@@ -1,6 +1,12 @@
-.exe
-__pycache__
-.cmake
-Makefile
-CMakeFiles/*
+# Ignore CMake-generated files
+CMakeFiles/
 CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+x64/
+*.dir/
+*.pdb
+*.vcxproj
+*.vcxproj.filters
+*.sln

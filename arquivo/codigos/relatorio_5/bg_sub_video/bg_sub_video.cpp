@@ -19,6 +19,7 @@ using namespace std;
 const char* params
     = "{ help h         |           | Print usage }"
       "{ input          | vtest.avi | Path to a video or a sequence of image }"
+      "{ output         | output.mp4| Path to save the processed video }"
       "{ algo           | MOG2      | Background subtraction method (KNN, MOG2) }";
 
 int main(int argc, char* argv[])
@@ -31,6 +32,13 @@ int main(int argc, char* argv[])
         //print help information
         parser.printMessage();
     }
+
+    // Debug. Comentarei depois.
+    //string inputFile = parser.get<String>("input");
+    //string outputFile = parser.get<String>("output");
+    //cout << "Input file: " << inputFile << endl;
+    //cout << "Output file: " << outputFile << endl;
+    // Nota: bug descoberto - bastava usar aspas nos inputs 
 
     //! [create]
     //create Background Subtractor objects
@@ -50,7 +58,23 @@ int main(int argc, char* argv[])
     }
     //! [capture]
 
-    Mat frame, fgMask;
+    //! [Write]
+    string outputPath = parser.get<String>("output"); //Incluso nos inputs para não termos que compilar separadamente pra todos os vídeos
+    int codec = VideoWriter::fourcc('m', 'p', '4', 'v'); // MPEG-4 codec
+    double fps = capture.get(CAP_PROP_FPS);
+    Size frameSize(
+        (int)capture.get(CAP_PROP_FRAME_WIDTH), // Tamanho do arquivo salvo
+        (int)capture.get(CAP_PROP_FRAME_HEIGHT)
+    );
+    VideoWriter videoWriter(outputPath, codec, fps, frameSize, true);
+    
+    if (!videoWriter.isOpened()) { // Garantindo sucesso de escrita
+        cerr << "Error: Could not open the output video file for writing: " << outputPath << endl;
+        return 0;
+    }
+    //! [Write]
+
+    Mat frame, fgMask, fgMaskColor;
     while (true) {
         capture >> frame;
         if (frame.empty())
@@ -72,17 +96,24 @@ int main(int argc, char* argv[])
                 FONT_HERSHEY_SIMPLEX, 0.5 , cv::Scalar(0,0,0));
         //! [display_frame_number]
 
-        //! [show]
+        //Convertendo para compatibilizar
+        cvtColor(fgMask, fgMaskColor, COLOR_GRAY2BGR);
+
+        //! [show & save]
         //show the current frame and the fg masks
         imshow("Frame", frame);
         imshow("FG Mask", fgMask);
-        //! [show]
+        videoWriter.write(fgMaskColor); // Salvando o resultado em vídeo
+        //! [show & save]
 
         //get the input from the keyboard
         int keyboard = waitKey(30);
         if (keyboard == 'q' || keyboard == 27)
             break;
     }
+
+    capture.release(); //Estava faltando. Não necessário porém boa prática
+    videoWriter.release(); //Boa prática
 
     return 0;
 }
