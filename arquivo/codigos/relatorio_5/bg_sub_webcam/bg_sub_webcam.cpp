@@ -1,3 +1,10 @@
+/**
+ * Code made by changing the:
+ * @file bg_sub.cpp
+ * @brief Background subtraction tutorial sample code
+ * @author Domenico D. Bloisi
+ */
+
 #include <iostream>
 #include <sstream>
 #include <opencv2/imgcodecs.hpp>
