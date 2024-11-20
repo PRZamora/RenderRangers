@@ -195,7 +195,7 @@
     </div>
 
     <div class="section">
-        <h2>4. Experimentos</h2>
+        <h2>4. Resultados e Análises</h2>
         <h3>(1) Programa C++ com Vídeo</h3>
         <p>O programa foi desenvolvido para ler o vídeo gravado no laboratório anterior, aplicar a subtração de fundo e mostrar apenas os elementos em movimento, conforme resultados:</p>
 
@@ -350,10 +350,30 @@
         <h3>(3) Discussões sobre aplicações</h3>
         <p>Pelo que pudemos abstrair, a subtração de fundo é amplamente utilizada em segurança, vigilância de áreas públicas, detecção de objetos em movimento e em análise de tráfego. Um exemplo de experimento pode ser realizado no contexto de monitoramento de áreas específicas, como corredores ou parques. Denotamos apenas que o método implantado da forma com a qual foi implantado aqui não seria suficiente, pois estaria sujeito aos mais diversos ruídos da própria câmera, assim como eventos adversos, como o próprio vento.</p>
         <p>Assim, uma aplicação real dependeria de filtros e, possivelmente, um algoritmo especializado em reconhecimento (com ou sem Machine Learning) para identificar potenciais riscos sem falsos-alarmes.</p>
- 
+
+        <h3><b>Códigos dos itens (1) e (2)</b></h3>
+        <p>Note: o item 0 possui um código que foi reutilizado para estes dois items. Pode encontrá-lo em: <a href="https://github.com/opencv/opencv/blob/4.x/samples/cpp/tutorial_code/video/bg_sub.cpp">bg_sub.cpp</a></p>
+
+        <p>Para o item (1)</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> bg_sub_video.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-1"></code></pre>
+        </div>
+
+        <p>E por fim, para o item (2):</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> bg_sub_webcam.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-2"></code></pre>
+        </div>
+
+        <script>fetch("../arquivo/codigos/relatorio_5/bg_sub_video/bg_sub_video.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_5/bg_sub_webcam/bg_sub_webcam.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-2").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+
     <div class="section">
-        <h2>5. Aplicações Práticas e Experimentação</h2>
-        <p>A subtração de fundo é amplamente utilizada em segurança, vigilância de áreas públicas, detecção de objetos em movimento e em análise de tráfego. Um exemplo de experimento pode ser realizado no contexto de monitoramento de áreas específicas, como corredores ou parques.</p>
+        <h2>5. Conclusões e Comentários Finais</h2>
+        <p>[ToDO]</p>
     </div>
 
 </div>
