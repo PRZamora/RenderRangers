@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( bg_sub_webcam )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( bg_sub_webcam bg_sub_webcam.cpp )
+target_link_libraries( bg_sub_webcam ${OpenCV_LIBS} )
