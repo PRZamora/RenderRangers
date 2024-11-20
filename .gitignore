@@ -10,3 +10,6 @@ x64/
 *.vcxproj
 *.vcxproj.filters
 *.sln
+
+# Ignore vscode files
+.vscode/
