@@ -15,6 +15,14 @@ const char* params
       "{ output         | output.png| Path to save the processed image }"
       "{ algo           | SHI       | Feature Detection (SHI, FEAT) }";
 
+void featureTrack (int, void*) {
+	
+}
+
+void shiTrack (int, void*) {
+	
+}
+
 int main(int argc, char* argv[])
 {
 	// Print help
@@ -41,6 +49,14 @@ int main(int argc, char* argv[])
     
     // Turns to gray (single-channel)
     cvtColor( src, src_gray, COLOR_BGR2GRAY );
-		
+	
+	if (algoritm == "SHI")
+		shiTrack(src_gray);
+	elseif (algoritm == "FEAT")
+		featureTrack(src_gray);
+	else:
+		cout << "Could not run the informed algorithm!\n" << endl;
+	
+	waitKey();	// Press something to close windows
     return 0;
 }
