@@ -76,16 +76,47 @@
         nav .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-        .content {
-            margin-top: 30px;
+        .container {
+            display: flex;
+            flex-grow: 1;
+            margin-top: 30px; /* Garantir que o conteúdo comece abaixo do cabeçalho */
         }
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        .sidebar {
+            position: fixed;
+            top: 180px; /* Ajuste para começar abaixo do cabeçalho */
+            left: 20px;
+            width: 250px;
+            background-color: #4CAF50;
+            padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+            color: white;
+        }
+        .sidebar ul li:hover {
+            background-color: #45a049;
+            color: white;
+        }
+        .content-wrapper {
+            margin-left: 300px; /* Espaço para a barra lateral */
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
         }
         .section {
+            display: none;
             margin-bottom: 40px;
         }
         footer {
@@ -106,9 +137,41 @@
             border-top: 5px solid white;
         }
         button:hover .caret {
-            border-top-color: #ddd; /* Change caret color on hover */
+            border-top-color: #ddd;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script>
+        // Função para obter o valor de um parâmetro na URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Função para exibir a seção com base no id
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+
+        window.onload = () => {
+            const sectionId = getUrlParameter('session'); // Obtém o parâmetro "session" da URL
+            if (sectionId) {
+                showSection(sectionId); // Exibe a seção correspondente
+            } else {
+                showSection('parte1'); // Exibe a seção 'parte6' por padrão
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -117,7 +180,6 @@
 </header>
 
 <nav>
-    <!-- Relatórios Dropdown -->    
     <div class="dropdown">
         <button>Relatórios <span class="caret"></span></button>
         <div class="dropdown-content">
@@ -131,14 +193,12 @@
             <a href="../relatorios/relatorio8.html">Relatório 8</a>
         </div>
     </div>
-    <!-- Projetos Dropdown -->
     <div class="dropdown">
         <button>Projetos <span class="caret"></span></button>
         <div class="dropdown-content">
             <a href="projetofinal.html">Projeto Final</a>
         </div>
     </div>
-    <!-- Membros Dropdown -->
     <div class="dropdown">
         <button>Membros <span class="caret"></span></button>
         <div class="dropdown-content">
@@ -149,33 +209,48 @@
     </div>
 </nav>
 
-<div class="content">
-    <div class="section">
-        <h2>1. Introdução</h2>
-        <p>[Coloque a introdução do relatório aqui]</p>
-    </div>
-    
-    <div class="section">
-        <h2>2. Fundamentos Básicos</h2>
-        <p>[Escreva os fundamentos básicos utilizados]</p>
-    </div>
-
-    <div class="section">
-        <h2>3. Materiais e Métodos</h2>
-        <p>- Diagrama de blocos funcional</p>
-        <p>- Ambiente detalhado dos experimentos (nome e versão dos sistemas, equipamentos, programas, bibliotecas, software utilizados)</p>
-        <p>- Procedimentos experimentais</p>
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li onclick="showSection('parte1')">Parte 1: Contexto e Cenário de Aplicação (CA)</li>
+            <li onclick="showSection('parte2')">Parte 2: Modelagem Funcional do Sistema de Processamento Visual (MF)</li>
+            <li onclick="showSection('parte3')">Parte 3: Desenvolvimento do Sistema de Processamento Visual (SPV)</li>
+            <li onclick="showSection('parte4')">Parte 4: Elaboração de Laboratório Experimental do SPV (LEx)</li>
+            <li onclick="showSection('parte5')">Parte 5: Teste de Campo do SPV (TC)</li>
+            <li onclick="showSection('parte6')">Parte 6: Relatório Final</li>
+        </ul>
     </div>
 
-    <div class="section">
-        <h2>4. Resultados e Análises</h2>
-        <p>[Escreva a análise e observações dos resultados obtidos]</p>
-        <p>Mostre os efeitos causados nas imagens e nos sinais, além de observações próprias sobre os experimentos.</p>
-    </div>
+    <div class="content-wrapper">
+        <div class="section" id="parte1">
+            <h2>1. Contexto e Cenário de Aplicação (CA)</h2>
+            <p>[Preencha com o conteúdo da Parte 1]</p>
+        </div>
 
-    <div class="section">
-        <h2>5. Conclusões e Comentários Finais</h2>
-        <p>[Escreva as conclusões e comentários finais]</p>
+        <div class="section" id="parte2">
+            <h2>2. Modelagem Funcional do Sistema de Processamento Visual (MF)</h2>
+            <p>[Preencha com o conteúdo da Parte 2]</p>
+        </div>
+
+        <div class="section" id="parte3">
+            <h2>3. Desenvolvimento do Sistema de Processamento Visual (SPV)</h2>
+            <p>[Preencha com o conteúdo da Parte 3]</p>
+        </div>
+
+        <div class="section" id="parte4">
+            <h2>4. Elaboração de Laboratório Experimental do SPV (LEx)</h2>
+            <p>[Preencha com o conteúdo da Parte 4]</p>
+        </div>
+
+        <div class="section" id="parte5">
+            <h2>5. Teste de Campo do SPV (TC)</h2>
+            <p>[Preencha com o conteúdo da Parte 5]</p>
+        </div>
+
+        <div class="section" id="parte6">
+            <h2>6. Relatório Final</h2>
+            <p>[Preencha com o conteúdo da Parte 6]</p>
+        </div>
     </div>
 </div>
 
