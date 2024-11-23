@@ -8,7 +8,7 @@
 // Para o SURF:
 #include <opencv2/features2d.hpp>
 #ifdef HAVE_OPENCV_XFEATURES2D // Esse método requisita essa dep pra funcionar. Mantidas as tratativas feitas no código-tutorial
-#include <opencv2/xfeatures2d.hpp>
+#include <opencv2/xfeatures2d.hpp> //Ps.: para instalar no windows, só recompilando o OpenCV com o OpenCV_Contrib
 #endif
 
 using namespace cv;
