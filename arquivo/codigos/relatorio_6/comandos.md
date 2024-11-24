@@ -21,4 +21,11 @@
 
 (Remover diretório debug se compilado no linux do lab)
 
-## Item 2 (Alterado para gravar Webcam. Apertar r para iniciar gravação)
+## Item 2 (Alterado para gravar Webcam. Apertar s para salvar imagem atual)
+
+```shell
+    .\Debug\feature_detection_webcam.exe --algo="SHI"
+```
+```shell
+    .\Debug\feature_detection_webcam.exe --algo="SURF"
+```
