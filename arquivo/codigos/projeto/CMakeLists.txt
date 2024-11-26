@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( eyeTracking )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( eyeTracking eyeTracking.cpp )
+target_link_libraries( eyeTracking ${OpenCV_LIBS} )
