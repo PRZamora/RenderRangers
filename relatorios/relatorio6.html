@@ -214,6 +214,24 @@
         <p>Logo, seguiremos aqui apontando as resultantes de cada execução solicitada ou realizada:</p>
     </div>
 
+    <p>Por fim, temos os códigos. Para o item (1)</p>
+    <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+        <p><strong>Nome do Script:</strong> feature_detection.cpp</p>
+        <!-- Carregado nas tags de script abaixo -->
+        <pre><code id="code-snipet-1"></code></pre>
+    </div>
+
+    <p>E por fim, para o item (2):</p>
+    <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+        <p><strong>Nome do Script:</strong> feature_detection_webcam.cpp</p>
+        <!-- Carregado nas tags de script abaixo -->
+        <pre><code id="code-snipet-2"></code></pre>
+    </div>
+
+    <script>fetch("../arquivo/codigos/relatorio_6/feature_detection/feature_detection.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+    <script>fetch("../arquivo/codigos/relatorio_6/feature_detection_webcam/feature_detection_webcam.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-2").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+
+
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
         <p>[Escreva as conclusões e comentários finais]</p>
