@@ -39,11 +39,13 @@ int main( int argc, char** argv )
             break;
         }
         
+		imshow("Imagem original", src);
+			
 		split( src, bgr_planes );
 	 
-		equalizeHist( &bgr_planes[0], eq_b );
-		equalizeHist( &bgr_planes[1], eq_g );
-		equalizeHist( &bgr_planes[2], eq_r );
+		equalizeHist( bgr_planes[0], eq_b );
+		equalizeHist( bgr_planes[1], eq_g );
+		equalizeHist( bgr_planes[2], eq_r );
 		
         char key = (char) waitKey(30);
         if (key == 'q' || key == 27)
@@ -52,9 +54,9 @@ int main( int argc, char** argv )
 			calcHist( &bgr_planes[1], 1, 0, Mat(), g_hist, 1, &histSize, histRange, uniform, accumulate );
 			calcHist( &bgr_planes[2], 1, 0, Mat(), r_hist, 1, &histSize, histRange, uniform, accumulate );
 			
-			calcHist( eq_b, 1, 0, Mat(), be_hist, 1, &histSize, histRange, uniform, accumulate );
-			calcHist( eq_g, 1, 0, Mat(), ge_hist, 1, &histSize, histRange, uniform, accumulate );
-			calcHist( eq_r, 1, 0, Mat(), re_hist, 1, &histSize, histRange, uniform, accumulate );
+			calcHist( &eq_b, 1, 0, Mat(), be_hist, 1, &histSize, histRange, uniform, accumulate );
+			calcHist( &eq_g, 1, 0, Mat(), ge_hist, 1, &histSize, histRange, uniform, accumulate );
+			calcHist( &eq_r, 1, 0, Mat(), re_hist, 1, &histSize, histRange, uniform, accumulate );
  
 			normalize(b_hist, b_hist, 0, histOriginal.rows, NORM_MINMAX, -1, Mat() );
 			normalize(g_hist, g_hist, 0, histOriginal.rows, NORM_MINMAX, -1, Mat() );
@@ -87,12 +89,9 @@ int main( int argc, char** argv )
 					  Scalar( 0, 0, 255), 2, 8, 0  );
 			}
 			
-			Mat eq_channels[3] = {eq_b, eq_g, eq_r};
-			merge(eq_channels, 3, equalized_image);
-			merge(bgr_planes, 3, original_image);
-			
-			imshow("Imagem original", original_image);
-			imshow("Imagem equalizada", equalized_image);
+			vector<Mat> eq_channels = {eq_b, eq_g, eq_r};
+			merge(eq_channels, equalized_image);
+			merge(bgr_planes, original_image);
 			
 			imwrite("original_histogram.jpg", histOriginal);
 			imwrite("equalized_histogram.jpg", histEqualized);
