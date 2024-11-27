@@ -182,28 +182,36 @@
         <h2>1. Introdução</h2>
         <p>Os objetivos do trabalho eram:</p>
         <ul>
-            <li>Enender e aplicar a subração de fundos em imagens, vídeos e em tempo real pela webcam.</li>
-            <li>Como aplicar isso em códigos de processamento de imagens utilizando o OpenCV.</li>
+            <li>Compreender a detecção de features, a aplicando em imagens, vídeos e em tempo real pela webcam.</li>
+            <li>Compreender as resultantes disso em códigos de processamento de imagens utilizando o OpenCV em linguagem C++.</li>
         </ul>
     </div>
     
     <div class="section">
         <h2>2. Fundamentos Básicos</h2>
-        <p>Para a execução do laboratório foi necessário a utilização do programa OpenCV.</p>
-        <p>A técnica utilizada foi a Background Subtraction</p>
+        <p>Assim como em outros laboratórios, para a execução do experimento foi necessário a utilização da biblioteca OpenCV. Contudo, pela primeira vez dentre os métodos explorados, foi necessário contar com métodos do OpenCV Contrib, módulos extras e não devidamente validados, feitos de forma contributiva pela comunidade.</p>
+        <p>Neste caso, tivemos a detecção via Shi-Tomasi (implementada no OpenCV) e via SURF (Implementada nos módulos colaborativos).</p>
+        <p>Ambos são algoritmos para detecção de features. Detectar uma feature é compreender padrões para tentar encontrar os elementos mais relevantes dentro de um contexto - no caso, um frame ou imagem.</p>
     </div>
 
     <div class="section">
         <h2>3. Materiais e Métodos</h2>
-        <p>- Diagrama de blocos funcional</p>
-        <p>- Ambiente detalhado dos experimentos (nome e versão dos sistemas, equipamentos, programas, bibliotecas, software utilizados)</p>
-        <p>- Procedimentos experimentais</p>
+        <p>- Máquina com compilador C++ e dependências instaladas (principalmente, o OpenCV);</p>
+        <p>- Webcam ou câmera compatível;</p>
+        <p>- Editor de texto (Geanie, Github.dev, Visual Code ou outros);</p>
+        <p>- Execução experimental;</p>
     </div>
 
     <div class="section">
         <h2>4. Resultados e Análises</h2>
-        <p>[Escreva a análise e observações dos resultados obtidos]</p>
-        <p>Mostre os efeitos causados nas imagens e nos sinais, além de observações próprias sobre os experimentos.</p>
+        <p>Neste relatório, foram apresentados dois tutoriais principais:</p>
+            <ul>
+                <li><b><a href="https://docs.opencv.org/4.x/d8/dd8/tutorial_good_features_to_track.html">Shi-Tomasi:</a></b> Detecção de Cantos</li>
+                <li><b><a href="https://docs.opencv.org/4.x/d7/d66/tutorial_feature_detection.html">Surf:</a></b> Speeded-Up Robust Features</li>
+            </ul>
+        <p>Para os quais (1) foi requisitado a implementação em código para uso com imagens previamente obtidas, salvando as resultantes. No item (2), foi requisitado que na implementação fosse incluso o uso de webcam, para detecção de features em tempo real.</p>
+        <p>Quanto à implementação do código, não houveram grandes problemas pois se tratava apenas de especializar aquilo que já era entregue nos exemplos-tutoriais.</p>
+        <p>Logo, seguiremos aqui apontando as resultantes de cada execução solicitada ou realizada:</p>
     </div>
 
     <div class="section">
