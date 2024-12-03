@@ -231,12 +231,147 @@
     <div class="content-wrapper">
         <div class="section" id="parte1">
             <h2>1. Contexto e Cenário de Aplicação (CA)</h2>
-            <p>[ToDO]</p>
+ 
+            <section>
+                <h3>Contexto e Justificativa</h3>
+                <p>O trabalho propõe o um sistema simplificado de Eye-Tracking (rastreamento ocular) para auxiliar pessoas que perderam a grande maioria dos movimentos do corpo porém possuem os olhos como forma de comunicação. Este sistema visa proporcionar mínima capacidade de comunicação, permitindo respostas simples a perguntas binárias ("Sim" ou "Não") com base na direção do olhar.</p>
+                <p>Esse cenário clínico pode ser visto em um episódio da série médica <b>House M.D.</b>:</p>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/cvsGOAxpajA"> </iframe>
+            </section>
+
+            <section>
+                <h3>Objetivo do Sistema</h3>
+                <p>Criar um sistema de processamento visual capaz de identificar movimento nos olhos e interpretá-lo como uma resposta binária. Os principais objetivos incluem:</p>
+                <ul>
+                    <li><strong>Detecção do Olho:</strong> Identificar e rastrear a movimento dos olhos.</li>
+                    <li><strong>Comunicação de Respostas:</strong> Associar tais movimentos a respostas "Sim" ou "Não".</li>
+                    <li><strong>Interface:</strong> Fornecer a um terceiro interface visual que exiba a resposta detectada.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Ações Realizadas pelo Programa</h3>
+                <ul>
+                    <li><strong>Rastreamento Ocular:</strong> Uso de algoritmos pré-implementados na lib OpenCV para localizar e seguir a posição da pupila.</li>
+                    <li><strong>Detecção de Direção:</strong> Analisar se o olhar do usuário está direcionado para a esquerda ou direita.</li>
+                    <li><strong>Exibição do Resultado:</strong> Mostrar "Sim" ou "Não" em uma tela com letras grandes e claras para permitir a comunicação.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Interatividade Prevista</h3>
+                <p><strong>Usuário:</strong> Direciona o olhar para a esquerda ou direita para indicar uma resposta.</p>
+                <p><strong>Sistema:</strong> Processa os dados visuais e exibe a resposta correspondente em near-real time, contando com um atraso para debounce.</p>
+            </section>
+
+            <section>
+                <h3>Benefícios</h3>
+                <ul>
+                    <li><strong>Simplicidade:</strong> Focado exclusivamente na comunicação binária para simplificar usabilidade.</li>
+                    <li><strong>Custo-baixo:</strong> Utiliza hardware barato, como webcams convencionais, e software de código aberto (OpenCV).</li>
+                    <li><strong>Usabilidade:</strong> Interface simplificada, fácil de interpretar tanto para o usuário quanto para o interlocutor.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Conclusão</h3>
+                <p>O sistema proposto proporciona uma solução direta de comunicação, buscando atender necessidades básicas de indivíduos com limitações motoras graves para oferecer, além de autonomia mínima, um pouco de dignidade.</p>
+            </section>
+
         </div>
 
         <div class="section" id="parte2">
             <h2>2. Modelagem Funcional do Sistema de Processamento Visual (MF)</h2>
-            <p>[ToDO]</p>
+            
+                <section>
+                    <h3>Descrição Geral</h3>
+                    <p>O sistema de eye-tracking permite a comunicação através de respostas "Sim" ou "Não" com base na direção do olhar (direita ou esquerda). O programa opera em tempo real utilizando a webcam e algoritmos de processamento de vídeo para identificar a pupila e traduzir seus movimentos em respostas.</p>
+                </section>
+            
+                <section>
+                    <h3>Funcionalidades Principais</h3>
+                    <ul>
+                        <li><strong>Aquisição de Imagem:</strong> Captura de quadros em tempo real a partir de webcam.</li>
+                        <li><strong>Detecção de Rostos e Olhos:</strong> Localização para limitar a área de busca da pupila.</li>
+                        <li><strong>Rastreamento Ocular:</strong> Identifica a posição e determina o movimento das pupilas.</li>
+                        <li><strong>Interpretação do Movimento:</strong> Classifica o movimento em <b>Sim</b> ou <b>Não</b>.</li>
+                        <li><strong>Feedback Visual:</strong> Exibe resposta na tela em near-real time para usuário e terceiros.</li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h3>Fluxo de Dados do Sistema</h3>
+                    <ul>
+                        <li><strong>Entrada:</strong>
+                            <ul>
+                                <li>Imagens capturadas por webcam, em sua resolução nativa.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Processamento:</strong>
+                            <ul>
+                                <li>Conversão para escala de cinza para processamentos.</li>
+                                <li>Detecção de rosto e/ou olhos usando classificador Cascade Haar.</li>
+                                <li>Localização das pupilas ou íris dentro da região dos olhos.</li>
+                                <li>Rastreamento da pupila e cálculo de sua posição relativa.</li>
+                                <li>Interpretação do movimento ocular.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Saída:</strong>
+                            <ul>
+                                <li>Exibição da resposta "Sim" ou "Não".</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h3>Componentes do Sistema</h3>
+                    <ul>
+                        <li><strong>Módulo de Captura:</strong>
+                            <ul>
+                                <li>Captura de imagens em tempo real com baixa latência.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Módulo de Processamento de Vídeo:</strong>
+                            <ul>
+                                <li>Aplicação de filtros, equalização de histograma.</li>
+                                <li>Detecção de regiões.</li>
+                                <li>Extração de características da pupila para leitura do movimento.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Módulo de Decisão:</strong>
+                            <ul>
+                                <li>Classificação da direção ocular em "Esquerda" ou "Direita".</li>
+                            </ul>
+                        </li>
+                        <li><strong>Módulo de Exibição:</strong>
+                            <ul>
+                                <li>Exibe o resultado interpretado, traduzindo-o para "Sim" ou "Não".</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h3>Diagrama - Versão Textual</h3>
+                    <p><strong>Entrada:</strong> Webcam →</p>
+                    <p><strong>Processamento:</strong> Captura de imagem → Conversão para escala de cinza → Detecção de rosto (opcional) → Detecção de olhos → Rastreamento de pupila → Interpretação do movimento.</p>
+                    <p><strong>Saída:</strong> Exibição do resultado na interface visual.</p>
+                </section>
+            
+                <section>
+                    <h3>Considerações de Implementação</h3>
+                    <ul>
+                        <li><strong>Tolerância ao Ruído:</strong> Utilizar filtros para minimizar interferências externas e características do sensor da webcam.</li>
+                        <li><strong>Interface Intuitiva:</strong> Letras grandes e cores fortes para facilitar leitura.</li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h3>Resultado Esperado</h3>
+                    <p>Um sistema suficientemente funcional que traduza movimentos dos olhos em respostas "Sim" ou "Não".</p>
+                </section>
+
         </div>
 
         <div class="section" id="parte3">
