@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Final - Render Rangers - Eye Tracking</title>
+    <link rel="shortcut icon" href="../arquivo/imagens/miscelanious/favicon.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,6 +126,7 @@
         }
         .sub_section h3 {
             color: #4CAF50;
+            margin-bottom: 8px;
         }
         footer {
             margin-top: 40px;
@@ -225,6 +227,7 @@
             <li onclick="showSection('parte4')">Parte 4: Elaboração de Laboratório Experimental do SPV (LEx)</li>
             <li onclick="showSection('parte5')">Parte 5: Teste de Campo do SPV (TC)</li>
             <li onclick="showSection('parte6')">Parte 6: Relatório Final</li>
+            <li onclick="showSection('parte7')">Parte 7: Anexos</li>
         </ul>
     </div>
 
@@ -376,7 +379,64 @@
 
         <div class="section" id="parte3">
             <h2>3. Desenvolvimento do Sistema de Processamento Visual (SPV)</h2>
-            <p>[ToDO]</p>
+
+            <section>
+                <h3>Descrição</h3>
+                <p>O código deste SPV é desenvolvido em linguagem C++ utilizando a lib de código-aberto OpenCV para realizar o processamento de vídeo. Conforme requisitado pelas orientações do professor, na versão atual do código, atende aos requisitos de:</p>
+                <ul>
+                    <li><strong>[Mandatório] Filtragem de Imagens:</strong> Aplicando filtros para reduzindo ruídos e destacar regiões de interesse.</li>
+                    <li><strong>[Mandatório] Processamento de Cores:</strong> Convertendo para escala de cinza.</li>
+                    <li><strong>[Mandatório] Histograma e Equalização:</strong> Equalizando o histograma da escala de cinzas.</li>
+                    <li><strong>[Mandatório] Subtração de Fundo:</strong> Destacando os olhos do quadro.</li>
+                    <li><strong>[Opcional] Detecção de Objetos:</strong> Detectando rostos e olhos para rastreamento via Haars Cascade.</li>
+                </ul>
+            </section>
+        
+            <section>
+                <h3>Funcionalidades Implementadas</h3>
+                <ul>
+                    <li>Captura de vídeo em tempo real via webcam.</li>
+                    <li>Detecção de rostos e olhos para restringir a área de busca.</li>
+                    <li>Identificação do movimento de íris ou pupila (esquerda/direita).</li>
+                    <li>Exibição de respostas binárias ("Sim" ou "Não") em uma interface mínima.</li>
+                </ul>
+            </section>
+        
+            <section>
+                <h3>Código Fonte</h3>
+                <p>O código fonte aqui apresentado é um espelho do desenvolvimento até a data do dia 28/Nov, conforme requisitado:</p>
+                 
+                <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+                    <p><strong>Nome do Script:</strong> eyeTracking.cpp</p>
+                    <!-- Carregado nas tags de script abaixo -->
+                    <pre><code id="code-snipet-1"></code></pre>
+                </div>
+
+            </section>
+
+            <script>fetch("../arquivo/codigos/projeto/entrega_1/eyeTracking.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>            
+
+            <section>
+                <h3>Execução</h3>
+                <ul>
+                    <li><strong>Sistema Operacional:</strong> Foi validada compilação em Ubuntu-Linux e Windows.</li>
+                    <li><strong>Dependências:</strong> OpenCV, máquina com suporte a webcam.</li>
+                    <li><strong>Chamada do programa (Linux, construído via make):</strong>
+                        <pre><code>./eyeTracking</code></pre>
+                    </li>
+                    <li><strong>Chamada do programa (Windows, construído via msbuild):</strong>
+                        <pre><code>./Debug/eyeTracking.exe</code></pre>
+                        <p>ou</p>
+                        <pre><code>./Release/eyeTracking.exe</code></pre>
+                    </li>
+                </ul>
+            </section>
+        
+            <section>
+                <h3>Resultados Esperados</h3>
+                <p>O sistema exibirá em near-real time uma interface com as respostas "Sim" ou "Não", baseando-se na direção do movimento dos olhos.</p>
+            </section>
+
         </div>
 
         <div class="section" id="parte4">
@@ -427,6 +487,21 @@
             </div>
 
         </div>
+
+        <div class="section" id="parte7">
+            <h2>7. Anexos e Outros materiais</h2>
+            
+            <p>Aqui podem ser encontrados materiais de referência, apresentação realizada, entre outros objetos.</p>
+
+            <ul>
+                <li>Apresentação: <a href="ToDo">Google Presentations</a></li>
+                <li>Repositório desta documentação: <a href="https://github.com/PRZamora/RenderRangers">Github</a></li>
+            </ul>
+
+
+
+        </div>
+
     </div>
 </div>
 
