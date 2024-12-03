@@ -210,8 +210,10 @@
                 <li><b><a href="https://docs.opencv.org/4.x/d7/d66/tutorial_feature_detection.html">Surf:</a></b> Speeded-Up Robust Features</li>
             </ul>
         <p>Para os quais (1) foi requisitado a implementação em código para uso com imagens previamente obtidas, salvando as resultantes. No item (2), foi requisitado que na implementação fosse incluso o uso de webcam, para detecção de features em tempo real.</p>
-        <p>Quanto à implementação do código, não houveram grandes problemas pois se tratava apenas de especializar aquilo que já era entregue nos exemplos-tutoriais.</p>
-        <p>Note também que os códigos, abaixo, foram ajustados para conter entrada de argumentos e com isso, executar qualquer processamento sem recompilá-los. Logo, seguiremos aqui apontando as resultantes de cada execução solicitada ou realizada:</p>
+        <p>Quanto à implementação do código, não houveram grandes problemas pois se tratava apenas de especializar aquilo que já era entregue nos exemplos-tutoriais. Ambos os exemplos foram implementados como opções no código, adotando Shi-Tomasi como default.</p>
+        <p>Note também que os códigos, abaixo, foram ajustados para conter entrada de argumentos e com isso, executar qualquer processamento sem recompilá-los. Logo, seguiremos aqui apontando as resultantes de cada execução solicitada ou realizada. Por exemplo, podemos executar:</p>
+        <p><b>.\Debug\feature_detection.exe --input="original_grayscale.jpg" --output="feature_surf_obj.png" --algo="SURF"</b></p>
+        <p>para executar o código de deteção lendo o arquivo <b>original_grayscale.jpg</b>, aplicando <b>SURF</b> e salvando em <b>feature_surf_obj.png</b></p>
     </div>
 
         <h3>(1) Detecção de Features em Imagens anteriores:</h3>
@@ -267,7 +269,8 @@
 
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
-        <p>[Escreva as conclusões e comentários finais]</p>
+        <p>As detecções de features atuam de forma diferente: enquanto Shi-Tomasi tem como princípio identificar cantos, SURF é mais robusto. Isso fez com que o primeiro fosse muito bom em detectar involuntariamente o contorno dos itens (assim como sombreamentos intensos), enquanto o segundo "vazava" pelos itens.</p>
+        <p>Ambos são ferramentas úteis que podem ser implementadas para seus objetivos.</p>
     </div>
 </div>
 
