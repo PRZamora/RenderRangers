@@ -1,6 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <chrono>
+#include <ctime>
 
 using namespace cv;
 using namespace std;
@@ -27,7 +28,7 @@ int main() {
     bool debounce_active = false;
 
     // Definindo a folga central (tolerância)
-    const int center_tolerance = 8; // Pixel de tolerância para considerar o centro como neutro
+    const int center_tolerance = 8; // Pixels para considerar o centro como neutro
 
     while (true) {
         cap >> frame; // Captura o quadro atual da webcam
@@ -35,15 +36,9 @@ int main() {
 
         // Pré-processamento da imagem
         Mat gray, equalized;
-
-        // 1. Conversão para escala de cinza (Processamento de cores)
-        cvtColor(frame, gray, COLOR_BGR2GRAY);
-
-        // 2. Equalização do histograma para melhorar o contraste
-        equalizeHist(gray, equalized);
-
-        // 3. Filtragem para redução de ruído
-        GaussianBlur(equalized, equalized, Size(5, 5), 0);
+        cvtColor(frame, gray, COLOR_BGR2GRAY); // Conversão para escala de cinza
+        equalizeHist(gray, equalized);         // Equalização do histograma
+        GaussianBlur(equalized, equalized, Size(5, 5), 0); // Redução de ruído
 
         // Detecção de olhos
         vector<Rect> eyes;
@@ -53,37 +48,34 @@ int main() {
 
         for (size_t i = 0; i < eyes.size() && i < 1; i++) { // Processa no máximo 1 olho
             Rect eye = eyes[i];
-
-            // Recorta a região do olho
             Mat eyeROI = equalized(eye);
 
-            // Subtração de fundo para identificar a pupila (assumindo intensidade mais escura)
+            // Threshold para isolar a pupila
             Mat thresholded;
             threshold(eyeROI, thresholded, 50, 255, THRESH_BINARY_INV);
 
-            // Localização de pontos de destaque (centro de massa da pupila)
+            // Localiza o centro de massa da pupila
             Moments m = moments(thresholded, true);
             if (m.m00 != 0) {
-                int cx = int(m.m10 / m.m00); // Coordenada X do centro
-                int cy = int(m.m01 / m.m00); // Coordenada Y do centro
+                int cx = int(m.m10 / m.m00);
+                int cy = int(m.m01 / m.m00);
 
-                // Determina a direção com base na posição da pupila em relação ao centro do olho
                 int eye_center_x = eye.width / 2;
 
-                // Se a pupila estiver dentro da zona central, mantém como "..."
+                // Determina a direção
                 if (abs(cx - eye_center_x) <= center_tolerance) {
                     direction = "...";
                 } else {
-                    direction = (cx < eye_center_x) ? "Esquerda" : "Direita";
+                    direction = (cx < eye_center_x) ? "SIM (Esquerda)" : "NAO (Direita)";
                 }
 
-                // Desenha o retângulo do olho e o ponto da pupila
+                // Desenha retângulo e círculo
                 rectangle(frame, eye, Scalar(255, 0, 0), 2);
                 circle(frame, Point(eye.x + cx, eye.y + cy), 5, Scalar(0, 255, 0), -1);
             }
         }
 
-        // Controle de debounce para estabilidade do resultado
+        // Lógica de debounce para saída estável
         steady_clock::time_point now = steady_clock::now();
         if (direction != last_direction) {
             if (!debounce_active) {
@@ -97,16 +89,30 @@ int main() {
             debounce_active = false;
         }
 
-        // Exibe o resultado em um quadro separado
-        Mat display = Mat::zeros(100, 400, CV_8UC3);
+        // Exibe resultados
+        Mat display = Mat::zeros(100, 800, CV_8UC3);
         putText(display, last_direction, Point(50, 70), FONT_HERSHEY_SIMPLEX, 2, Scalar(0, 255, 0), 3);
         imshow("Resultado", display);
 
-        // Exibe o quadro processado
+        // Exibe o quadro da webcam
         imshow("Eye Tracking", frame);
 
-        // Encerra se a tecla 'q' for pressionada
-        if (waitKey(10) == 'q') break;
+        // Manipulação de teclas
+        char key = waitKey(10);
+        if (key == 'q') break; // Encerra a aplicação
+        if (key == 's') { // Salva o quadro atual e a direção
+            // Gera o nome do arquivo com timestamp
+            auto t = system_clock::now();
+            time_t now = system_clock::to_time_t(t);
+            char timestamp[100];
+            strftime(timestamp, sizeof(timestamp), "%Y-%m-%d_%H-%M-%S", localtime(&now));
+
+            // Salva o quadro
+            string filename = string("eye_tracking_") + timestamp + ".png";
+            imwrite(filename, frame);
+
+            cout << "Quadro salvo como " << filename << endl;
+        }
     }
 
     cap.release();
