@@ -42,17 +42,26 @@ int main() {
 
         // Detecção de olhos
         vector<Rect> eyes;
-        eye_cascade.detectMultiScale(equalized, eyes, 1.1, 6, 0 | CASCADE_SCALE_IMAGE, Size(30, 30));
+        eye_cascade.detectMultiScale(equalized, eyes, 1.1, 6, 0 | CASCADE_SCALE_IMAGE, Size(100, 100));
 
         string direction = "...";
 
         for (size_t i = 0; i < eyes.size() && i < 1; i++) { // Processa no máximo 1 olho
             Rect eye = eyes[i];
-            Mat eyeROI = equalized(eye);
+
+            int stripHeight = eye.height / 6;
+            int stripStart = eye.y + (eye.height - stripHeight) / 2;
+
+            // Recortando uma faixa horizontal centralizada na íris, pra remover ruído da sobrancelha e cílios
+            Rect eyeStrip(eye.x, stripStart, eye.width, stripHeight);
+
+            Mat eyeROI = equalized(eyeStrip);
 
             // Threshold para isolar a pupila
             Mat thresholded;
-            threshold(eyeROI, thresholded, 50, 255, THRESH_BINARY_INV);
+            threshold(eyeROI, thresholded, 20, 255, THRESH_BINARY_INV);
+
+            imshow("jovistak", thresholded);
 
             // Localiza o centro de massa da pupila
             Moments m = moments(thresholded, true);
