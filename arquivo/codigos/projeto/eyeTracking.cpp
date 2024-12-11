@@ -61,8 +61,6 @@ int main() {
             Mat thresholded;
             threshold(eyeROI, thresholded, 20, 255, THRESH_BINARY_INV);
 
-            imshow("jovistak", thresholded);
-
             // Localiza o centro de massa da pupila
             Moments m = moments(thresholded, true);
             if (m.m00 != 0) {
