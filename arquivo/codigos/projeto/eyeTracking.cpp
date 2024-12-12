@@ -78,7 +78,7 @@ int main() {
 
                 // Desenha retângulo e círculo
                 rectangle(frame, eye, Scalar(255, 0, 0), 2);
-                circle(frame, Point(eye.x + cx, eye.y + cy), 5, Scalar(0, 255, 0), -1);
+                circle(frame, Point(eyeStrip.x + cx, eyeStrip.y + cy), 5, Scalar(0, 255, 0), -1);
             }
         }
 
