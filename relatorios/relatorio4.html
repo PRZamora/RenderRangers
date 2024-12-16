@@ -509,7 +509,57 @@
 
     <div class="section">
         <h2>5. Conclusões e Comentários Finais</h2>
-        <p><em>[Escreva as conclusões e comentários finais com base nos experimentos e análises]</em></p>
+        <p>Nesta seção, estão presentes os códigos utilizados em cada etapa do relatório, junto de suas devidas conclusões e reflexões.</p>
+        <h3>Leitura e equalização de histograma em imagens</h3>
+        <p>Para a primeira etapa, foi utilizado o seguinte código:</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> HistogramEqualization.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-1"></code></pre>
+        </div>
+
+        <p>Nas imagens resultantes dessa etapa, podemos ver os efeitos de equalização de histograma sobre as imagens originais (em P&B), assim como os histogramas em si, mostrando as intensidades dos tons mais escuros (à esquerda), e dos tons mais claros (à direita). Nos histogramas, fica claro o efeito da equalização, ao distribuir os tons de cinza das imagens, deixando os picos de intensidade mais "largos".</p>
+        <p>E nas imagens em si, notamos um aumento de contraste, com o aparecimento de "brilhos" em algumas regiões, e o aumento de intensidade das sombras em regiões mais escuras. Também observamos que em regiões onde antes havia pouca variação de cor, após a equalização do histograma foi possível notar "manchas" de diferentes intensidades de cor.</p>
+        
+        <h3>Leitura de imagem da webcam</h3>
+        <p>Para a segunda etapa, foi utilizado o seguinte código:</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> CamEqualization.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-2"></code></pre>
+        </div>
+
+        <p>O código para esta etapa foi muito semelhante ao da primeira etapa, com a diferença de que a imagem para tratamento é obtida a partir de uma câmera, ao invés de arquivo. Como esperado, os resultados são bastante semelhantes ao da primeira etapa. Porém, é válido notar que na foto do João, a equalização parece ter diminuído o contraste, ao invés de aumentá-lo. Ao observarmos o histograma da imagem antes da equalização, vemos que ela tem dois picos significativos nas regiões extremas de preto e branco - ou seja, a imagem já possuía alto contraste. Dessa forma, faz sentido que a equalização diminua o contraste, pois nesse caso, ele está aumentando a intensidade das regiões mais cinzas da imagem, suavizando os efeitos dos tons de branco e preto.</p>
+
+        <h3>Estudo de binarização com equalização de histograma</h3>
+        <p>Para a terceira etapa, foi utilizado o seguinte código:</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> CamThresholding.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-3"></code></pre>
+        </div>
+
+        <p>O processo de binarização desconsidera todas as tonalidades de cinza, e "reduz" a imagem para tons absolutos de preto e branco. Essa redução é feita a partir de um limiar (threshold), um número de 0 a 255 representando a intensidade do tom de cinza, onde acima desse valor o pixel é condiderado branco, e abaixo é considerado preto. Para a imagem do objeto, trabalhamos com os thresholds de 64, 128 e 192. Para a foto com pessoas, usamos o threshold de 128.</p>
+        <p>Na foto do objeto, não se nota muita diferença entre a imagem original, e a imagem equalizada - mesmo na limiarização em 64, as imagens são muito semelhantes. Porém, nas próximas etapas de limiarização, o efeito de equalização de histograma fica muito mais notável, onde podemos ver pelas imagens limiarizadas como a equalização de histograma aumento a quantidade de tons escuros da imagem.</p>
+
+        <h3>Equalização de histograma nas cores</h3>
+        <p>Para a quarta etapa, foi utilizado o seguinte código:</p>
+        <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #4CAF50;">
+            <p><strong>Nome do Script:</strong> ColorEqualization.cpp</p>
+            <!-- Carregado nas tags de script abaixo -->
+            <pre><code id="code-snipet-4"></code></pre>
+        </div>
+
+        <p>Nesta etapa, podemos ver os histogramas para as camadas R, G e B das imagens, e a aplicação da equalização sobre cada uma delas. O efeito nos histogramas é semelhante ao que vimos anteriormente, espaçando a intensidade de cada camada de cor.</p>
+        <p>Nas imagens coloridas, que possuiam originalmente um contraste elevado de cor, notamos uma dessaturação das imagens - olhando para os histogramas delas, vemos que originalmente as cores estavam concentradas nas regiões extremas do histograma, e após a equalização, muitas intensidades "intermediárias" foram introduzidas. Esse efeito é mais notável na imagem do objeto, que possui um tom vermelho vibrante sobre um fundo branco: a equalização dos histogramas de cor fez com que o vermelho, que estava concentrado nas regiões mais claras do histograma, fosse distribuído para as regiões mais escuras, diminuindo o brilho da cor no objeto; além disso, o verde que antes estava concentrado na região mais escura do histograma, foi distribuído para as regiões mais claras, ficando mais visível em regiões de sombra da imagem, contribuindo para uma aparência menos saturada da mesma.</p>
+        <p></p>
+        <p>Com estes resultados, conseguimos observar de forma prática como os histogramas podem ser utilizados para a análise e processamento de imagens, e como podemos, através deles, trabalhar com o contraste e saturação de imagens.</p>
+
+        <script>fetch("../arquivo/codigos/relatorio_4/histogram_equalization/HistogramEqualization.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-1").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_4/cam_equalization/CamEqualization.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-2").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_4/cam_thresholding/CamThresholding.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-3").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+        <script>fetch("../arquivo/codigos/relatorio_4/color_equalization/ColorEqualization.cpp").then(response => response.text()).then(data => {document.getElementById("code-snipet-4").textContent = data;}).catch(error => console.error("Error loading code!", error));</script>
+
     </div>
 </div>
 
