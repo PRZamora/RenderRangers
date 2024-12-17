@@ -587,87 +587,112 @@
 
         <div class="section" id="parte6">
             <h2>6. Relatório Final</h2>
-            
+        
             <p>O presente relatório faz jus à aplicação de Eye Tracking (Rastreio Ocular) desenvolvida e testada por <a href="../apresentacao/joaopsl.html">João Lima</a>, <a href="../apresentacao/renatopod.html">Renato Dias</a> e <a href="../apresentacao/pedrorz.html">Pedro Zamora</a>.</p>
             <p>Projeto desenvolvido para a Disciplina de Processamento de Vídeo (UFABC, 2024), sob orientação do <a href="https://www.ufabc.edu.br/ensino/docentes/celso-setsuo-kurashima">Prof. Dr. Celso Setsuo Kurashima</a>.</p>
-            <p></p>
-            
-                <div class="sub_section">
-                    <h3>1. Introdução</h3>
-                    <p>A diversidade humana se dá além de questões estéticas, biotípicas ou étnicas: cada pessoa também possui distintos conhecimentos, capacidades e disfunções que os tornam... eles mesmos! Pertence à humanidade o privilégio de usar ferramentas complexas para que nessas mais distintas diversidades e adversidades possamos todos ter como certa a principal capacidade humana: se comunicar.</p>
-                    <p>Neste projeto, trazemos justamente uma proposta de intervenção tecnológica para empoderar pessoas que possuam disfunções ou deficiências motoras, para que possam se comunicar com um simples movimento: o do olho. </p>
-                    <p></p>
-                </div>
+        
+            <div class="sub_section">
+                <h3>1. Introdução</h3>
+                <p>A diversidade humana se dá além de questões estéticas, biotípicas ou étnicas: cada pessoa também possui distintos conhecimentos, capacidades e disfunções que os tornam... eles mesmos! Pertence à humanidade o privilégio de usar ferramentas complexas para que nessas mais distintas diversidades e adversidades possamos todos ter como certa a principal capacidade humana: se comunicar.</p>
+                <p>Neste projeto, trazemos justamente uma proposta de intervenção tecnológica para empoderar pessoas que possuam disfunções ou deficiências motoras, para que possam se comunicar com um simples movimento: o do olho.</p>
+            </div>
+        
+            <div class="sub_section">
+                <h3>2. Cenário de Aplicação (CA)</h3>
+                <p>O cenário de aplicação do sistema de rastreamento ocular está focado em pessoas com deficiências motoras severas, impossibilitadas de realizar movimentos corporais amplos.</p>
+                <p>I.e., cenário no qual podemos ter:</p>
+                <ul>
+                    <li>Candidatos a usuários que possuem a capacidade de movimentar apenas os olhos.</li>
+                    <li>Ambientes hospitalares, domiciliares ou centros de reabilitação, com potenciais pessoas debilitadas necessitando da aplicação.</li>
+                </ul>
+                <p>O sistema facilita a comunicação binária ("Sim" ou "Não") e proporciona uma forma inclusiva de expressão para esses indivíduos.</p>
+            </div>
+        
+            <div class="sub_section">
+                <h3>3. Fundamentação Teórica</h3>
+                <p>O desenvolvimento do sistema utiliza conceitos fundamentais de processamento de imagens, implementados conforme descrito no código:</p>
+                <ul>
+                    <li><strong>Filtragem de Imagens:</strong> Reduz ruídos da imagem utilizando um filtro Gaussiano.</li>
+                    <pre><code>GaussianBlur(equalized, equalized, Size(5, 5), 0);</code></pre>
+        
+                    <li><strong>Processamento de Cores:</strong> Converte a imagem para escala de cinza para otimizar a detecção de objetos.</li>
+                    <pre><code>cvtColor(frame, gray, COLOR_BGR2GRAY);</code></pre>
+        
+                    <li><strong>Histograma e Equalização:</strong> Equaliza o histograma para melhorar o contraste da imagem e destacar regiões importantes.</li>
+                    <pre><code>equalizeHist(gray, equalized);</code></pre>
+        
+                    <li><strong>Subtração de Fundo:</strong> Utiliza thresholding para destacar a pupila como uma região escura.</li>
+                    <pre><code>threshold(eyeROI, thresholded, 20, 255, THRESH_BINARY_INV);</code></pre>
+        
+                    <li><strong>Localização de Objetos:</strong> Detecta regiões oculares utilizando Haar Cascades pré-treinados.</li>
+                    <pre><code>eye_cascade.detectMultiScale(equalized, eyes, 1.1, 6, 0 | CASCADE_SCALE_IMAGE, Size(100, 100));</code></pre>
+                </ul>
+                <p>Com base nessas técnicas, é possível detectar a pupila, estimar a sua posição em relação à cavidade ocular e identificar o movimento como <b>Sim</b> (direita) ou <b>Não</b> (esquerda).</p>
+                <p>O restante do código, disponível de forma completa em: <a href="https://github.com/PRZamora/RenderRangers/blob/main/arquivo/codigos/projeto/eyeTracking.cpp">Github RenderRangers - Eye Tracking</a> possui o detalhamento necessário para a implementação lógica relacionada ao uso das bibliotecas necessárias, dos recursos externos (webcam e teclado), e a lógica matemática por trás da posição ocular e detalhamentos como espaço-neutro (posição não considerada como esquerda ou direita) e debounce (tempo de intervalo entre leituras válidas).</p>
+                <p>Para o objetivo desse projeto, os 4 primeiros itens eram de us obrigatório. O quinto item deveria ser escolhido entre 3 opções.</p>
+            </div>
 
-                <div class="sub_section">
-                    <h3>2. Cenário de Aplicação (CA)</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                
-                <div class="sub_section">
-                    <h3>3. Fundamentação Teórica</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>4. Materiais e Métodos</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>5. Laboratório Experimental</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>6. Análise dos Resultados</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>7. Conclusões</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>8. Bibliografia</h3>
-                    <p>...:</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div class="sub_section">
-                    <h3>9. Anexos e Outros Materiais</h3>
-                    <p>Para acessar outros materiais, clique <b onclick="showSection('parte7')">AQUI!</b></p>
-                </div>
-
+            <div class="sub_section">
+                <h3>4. Materiais e Métodos</h3>
+                <p>Os materiais e ferramentas utilizadas para o desenvolvimento incluem:</p>
+                <ul>
+                    <li><strong>Linguagem de Programação:</strong> C++ com OpenCV.</li>
+                    <li><strong>Ambiente de Desenvolvimento:</strong> Ubuntu (Linux) e Windows 10.</li>
+                    <li><strong>Hardware:</strong> Webcam compatível e iluminação adequada.</li>
+                    <li><strong>Ferramentas Auxiliares:</strong> CMake, Make (Linux) e MSBuild (Windows).</li>
+                </ul>
+                <p>O sistema captura quadros da webcam, aplica filtros e equalização em tempo real, detecta os olhos e calcula o centro da pupila para identificar a direção do olhar. Um <b>debounce</b> de 150ms é implementado para estabilizar as leituras.</p>
+            </div>
+        
+            <div class="sub_section">
+                <h3>5. Laboratório Experimental</h3>
+                <p>O experimento foi conduzido em três etapas:</p>
+                <ul>
+                    <li><strong>Configuração do Ambiente:</strong> Iluminação frontal e posicionamento fixo da webcam.</li>
+                    <li><strong>Execução:</strong> Participantes executaram a aplicação e responderam a perguntas binárias usando movimentos oculares.</li>
+                    <li><strong>Coleta de Dados:</strong> Uso de formulário para compreensão do cenário do participante vs aplicação.</li>
+                </ul>
+            </div>
+        
+            <div class="sub_section">
+                <h3>6. Análise dos Resultados</h3>
+                <p>A análise dos resultados mostrou:</p>
+                <ul>
+                    <li><strong>Experiência:</strong> Usuários conseguiram utilizar a aplicação e obter resultados válidos.</li>
+                    <li><strong>Tempo de Resposta:</strong> Tempo entendido como adequado, funcionando em "testes de velocidade" de usuários.</li>
+                    <li><strong>Feedback:</strong> Usuários encontraram facilidade de uso, contudo sugeriram melhorias na interface visual para melhorar o primeiro contato com a ferramenta.</li>
+                </ul>
+            </div>
+        
+            <div class="sub_section">
+                <h3>7. Conclusões</h3>
+                <p>O sistema atingiu os objetivos propostos, demonstrando ser uma solução viável para comunicação binária em indivíduos com deficiências motoras severas.</p>
+                <ul>
+                    <li>Suficiente precisão e desempenho em tempo real.</li>
+                    <li>Facilidade de implementação com hardware acessível.</li>
+                    <li>Possíveis melhorias incluem adaptações para diferentes condições de iluminação e adição de funcionalidades para comunicação mais complexa, possivelmente utilizando recursos como o piscar do usuário.</li>
+                    <li>Melhorias de UX/UI também se veem necessárias.</li>
+                </ul>
+            </div>
+        
+            <div class="sub_section">
+                <h3>8. Bibliografia</h3>
+                <ul>
+                    <li>OpenCV Documentation - <a href="https://docs.opencv.org/">OpenCV</a></li>
+                    <li>OpenCV Documentation - <a href="https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html">Cascade Classifier</a></li>
+                    <li>OpenCV Repositories - <a href="https://github.com/opencv/opencv/tree/master/data/haarcascades">Haar Cascades Pre-trained Data</a></li>
+                    <li>Balasubramanian, R. Medium - <a href="https://medium.com/analytics-vidhya/eye-tracking-using-opencv-2f40cc09183c">Eye Tracking using OpenCV</a></li>
+                    <li>Kurashima, C. S. - Processamento de Vídeo (Material da Disciplina).</li>
+                    <li>Tutoriais diversos utilizados no decorrer da disciplina.</li>
+                </ul>
+            </div>
+        
+            <div class="sub_section">
+                <h3>9. Anexos e Outros Materiais</h3>
+                <p>Para acessar outros materiais, clique <b onclick="showSection('parte7')">AQUI!</b></p>
+            </div>
         </div>
+        
 
         <div class="section" id="parte7">
             <h2>7. Anexos e Outros materiais</h2>
@@ -675,11 +700,11 @@
             <p>Aqui podem ser encontrados materiais de referência, apresentação realizada, entre outros objetos.</p>
 
             <ul>
-                <li>Apresentação: <a href="ToDo">Google Presentations</a></li>
+                <li>Apresentação: <a href="https://docs.google.com/presentation/d/11O_53_RF3HDyKp_9esrveUqKeo73tdhv9lx5VZhw_Is/edit?usp=sharing">Google Presentations</a></li>
+                <li><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vToMZKy-iUtQz7GKORP0GLAtDGvyxO_EijOATScbck98Bi5hK-kg5OC7s25T4j2dyqO3KM7tQGw08kz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></li>
                 <li>Repositório desta documentação: <a href="https://github.com/PRZamora/RenderRangers">Github</a></li>
+                <li>Código do Eye Tracking: <a href="https://github.com/PRZamora/RenderRangers/blob/main/arquivo/codigos/projeto/eyeTracking.cpp">eyeTracking.cpp</a></li>
             </ul>
-
-
 
         </div>
 
